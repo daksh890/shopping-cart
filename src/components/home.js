@@ -3,9 +3,9 @@ import { faker } from "@faker-js/faker";
 import SingleProd from "./singleProd";
 import "./styles.css";
 
-faker.seed(100);
+faker.seed(300);
 
-function Home({ cart, setCart }) {
+function Home() {
   const prodArr = [...Array(20)].map(() => ({
     id: faker.datatype.uuid(),
     name: faker.commerce.productName(),
@@ -15,11 +15,11 @@ function Home({ cart, setCart }) {
   //   console.log(prodArr);
 
   const [products] = useState(prodArr);
-  console.log(cart);
+
   return (
     <div className="productContainer">
       {products.map((prod, key) => (
-        <SingleProd prod={prod} key={key} cart={cart} setCart={setCart} />
+        <SingleProd prod={prod} key={key} />
       ))}
     </div>
   );
